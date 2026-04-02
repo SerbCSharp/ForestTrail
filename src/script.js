@@ -1,31 +1,22 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { ThreeMFLoader } from "three/examples/jsm/Addons.js";
 
 // initialize the scene
 const scene = new THREE.Scene();
 
 // add objects to the scene
 const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMaterial = new THREE.MeshBasicMaterial({
-  color: "red",
-  wireframe: true,
-});
-
+const cubeMaterial = new THREE.MeshBasicMaterial({ color: "red", wireframe: true });
 const cubeMesh = new THREE.Mesh(cubeGeometry, cubeMaterial);
-scene.add(cubeMesh);
-cubeMesh.rotation.y = Math.PI * 0.5;
-cubeMesh.rotation.y = THREE.MathUtils.degToRad(90);
 
-const axesHelper = new THREE.AxesHelper(2);
-cubeMesh.add(axesHelper);
+scene.add(cubeMesh);
 
 // initialize the camera
 const camera = new THREE.PerspectiveCamera(
   35,
   window.innerWidth / window.innerHeight,
   0.1,
-  200,
+  200
 );
 camera.position.z = 5;
 
